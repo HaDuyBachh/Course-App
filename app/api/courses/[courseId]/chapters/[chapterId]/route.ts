@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { PlaybackIDs } from "@mux/mux-node/resources/video/playback-ids.mjs";
 import { isTeacher } from "@/lib/teacher";
+import * as  Shared from "@/node_modules/@mux/mux-node/src/resources/shared"
 
 const {video} = new Mux({
     tokenId: process.env.MUX_TOKEN_ID!,
@@ -150,7 +151,7 @@ export async function PATCH(
             const asset = await video.assets.create({
                 input: values.videoUrl,
                 test: false,
-                playback_policy: "public",
+                playback_policy: ["public"],
             });
 
             await db.muxdata.create({
