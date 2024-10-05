@@ -28,13 +28,18 @@ export async function POST(req:Request) {
     const userId = session?.metadata?.userId;
     const courseId = session?.metadata?.courseId;
 
-    console.log(`${userId}   ${courseId}`)
+    console.log(`Tối có use hiện tại là: ${userId}   ${courseId}`)
+    console.log(`Tối có event: ${event.type}`)
 
     if (event.type === "checkout.session.completed") {
+
+        console.log("Đã tọa thành công");
+
         if (!userId || !courseId) {
             return new NextResponse(`Webhook Error: Missing metadata`, {status: 400})
         }
         
+        console.log(`user được tạo hiện tại là: ${userId}   ${courseId}`)
         await db.purchase.create({
             data: {
                 courseId: courseId,

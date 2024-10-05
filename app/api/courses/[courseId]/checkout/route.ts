@@ -76,8 +76,7 @@ export async function POST(
             })
         }
 
-        console.log(` lenh o tren ${course.id}    ${user.id}`)
-
+        console.log(`Metadata được tạo là: ${course.id}    ${user.id} `)
 
         const session = await stripe.checkout.sessions.create({
             customer: stripeCustomer.stripeCustomerId,
@@ -87,7 +86,7 @@ export async function POST(
             cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${course.id}?canceled=1`,
             metadata: {
                 courseId: course.id,
-                useId: user.id,
+                userId: user.id,
             }
         })
 
