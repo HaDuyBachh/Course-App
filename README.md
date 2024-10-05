@@ -3,4 +3,4 @@
 - テストアカウント: hhaduybach@gmail.com
 - テスト用のパスワード: haduybachtest
 
-プロジェクト紹介動画: 
+プロジェクト紹介動画: https://drive.google.com/file/d/1L1nPgrcrLp7pI_oU5logWzTdViuTToHV/view?usp=sharing
